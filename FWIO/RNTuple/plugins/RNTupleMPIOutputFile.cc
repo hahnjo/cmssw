@@ -386,7 +386,7 @@ explicitly pass the correct variable to `SetColumnRepresentatives`).
     // Store the reduced ID in the IndexIntoFile
     ProcessHistoryID reducedPHID = processHistoryRegistry_.reducedProcessHistoryID(iLumi.processHistoryID());
     // Add lumi to index.
-    indexIntoFile_.addEntry(reducedPHID, iLumi.run(), iLumi.luminosityBlock(), 0U, lumiEntryNumber_);
+    indexIntoFile_.addEntry(reducedPHID, iLumi.run(), iLumi.luminosityBlock(), IndexIntoFile::invalidEvent, lumiEntryNumber_);
     ++lumiEntryNumber_;
   }
 
@@ -395,7 +395,7 @@ explicitly pass the correct variable to `SetColumnRepresentatives`).
     // Store the reduced ID in the IndexIntoFile
     ProcessHistoryID reducedPHID = processHistoryRegistry_.reducedProcessHistoryID(iRun.processHistoryID());
     // Add run to index.
-    indexIntoFile_.addEntry(reducedPHID, iRun.run(), 0U, 0U, runEntryNumber_);
+    indexIntoFile_.addEntry(reducedPHID, iRun.run(), IndexIntoFile::invalidLumi, IndexIntoFile::invalidEvent, runEntryNumber_);
     ++runEntryNumber_;
   }
 
