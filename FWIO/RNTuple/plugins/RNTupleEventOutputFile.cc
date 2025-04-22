@@ -175,20 +175,6 @@ explicitly pass the correct variable to `SetColumnRepresentatives`).
     return ret;
   }
 
-  std::unique_ptr<RNTupleModel> RNTupleEventOutputFile::setupCommonModels(SelectedProducts const& iProducts,
-                                                                     std::string const& iAuxName,
-                                                                     std::string const& iAuxType) {
-    auto model = ROOT::Experimental::RNTupleModel::CreateBare();
-    {
-      auto field = ROOT::Experimental::RFieldBase::Create(iAuxName, iAuxType).Unwrap();
-      model->AddField(std::move(field));
-    }
-    const std::vector<bool> streamerNothing;
-    const std::vector<std::string> unsplitNothing;
-    setupDataProducts(iProducts, streamerNothing, unsplitNothing, *model);
-    return model;
-  }
-
   void RNTupleEventOutputFile::setupEvents(SelectedProducts const& iProducts,
                                       Config const& iConfig,
                                       bool anyProductProduced) {

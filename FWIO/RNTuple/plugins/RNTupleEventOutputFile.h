@@ -80,9 +80,6 @@ namespace edm {
     };
 
   private:
-    std::unique_ptr<RNTupleModel> setupCommonModels(SelectedProducts const&,
-                                                    std::string const& iAuxName,
-                                                    std::string const& iAuxType);
     void setupEvents(SelectedProducts const&, Config const&, bool anyProductProduced);
 
     void setupDataProducts(SelectedProducts const&,
