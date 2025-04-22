@@ -253,6 +253,7 @@ explicitly pass the correct variable to `SetColumnRepresentatives`).
   void RNTupleEventOutputFile::reallyCloseFile(BranchIDLists const& iBranchIDLists,
                                           ThinnedAssociationsHelper const& iThinnedHelper,
                                           ProductRegistry const& iReg) {
+    events_.reset();
   }
 
   RNTupleEventOutputFile::~RNTupleEventOutputFile() {}

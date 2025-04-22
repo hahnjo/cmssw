@@ -265,6 +265,7 @@ explicitly pass the correct variable to `SetColumnRepresentatives`).
   void RNTupleMPIOutputFile::reallyCloseFile(BranchIDLists const& iBranchIDLists,
                                           ThinnedAssociationsHelper const& iThinnedHelper,
                                           ProductRegistry const& iReg) {
+    events_.reset();
   }
 
   RNTupleMPIOutputFile::~RNTupleMPIOutputFile() {}
