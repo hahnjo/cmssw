@@ -24,7 +24,7 @@ namespace {
 
 }  // namespace
 
-MPIService::MPIService(edm::ParameterSet const& config) {
+MPIService::MPIService(edm::ParameterSet const& config, edm::ActivityRegistry& registry) {
   /* As of Open MPI 4.1.0, `MPI_THREAD_MULTIPLE` is supported by the following transports:
    *   - the `ob1` PML, with the following BTLs:
    *       - `self`
@@ -82,11 +82,22 @@ MPIService::MPIService(edm::ParameterSet const& config) {
     log << '\n';
     log << "MPI successfully initialised";
   }
+
+  registry.watchPreBeginJob(this, &MPIService::preBeginJob);
+  registry.watchEndProcessing(this, &MPIService::endProcessing);
 }
 
 MPIService::~MPIService() {
   // terminate the MPI execution environment
   MPI_Finalize();
+}
+
+void MPIService::preBeginJob(edm::ProcessContext const& pc) {
+  MPI_Barrier(MPI_COMM_WORLD);
+}
+
+void MPIService::endProcessing() {
+  MPI_Barrier(MPI_COMM_WORLD);
 }
 
 void MPIService::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
