@@ -220,7 +220,7 @@ explicitly pass the correct variable to `SetColumnRepresentatives`).
       config.fStorage = fileName_;
       config.fOptions = writeOptions;
       config.fSendData = false;
-      config.fSendKey = false;
+      config.fSendKey = true;
       config.fReduceRootContention = false;
       config.fUseGlobalOffset = RNTupleWriterMPI::kFalse;
       static constexpr int kRoot = 0;
