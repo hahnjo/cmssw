@@ -926,8 +926,9 @@ public:
         R__FAIL("UpdateSchema not supported via RPageSinkMPI"));
   }
   void UpdateExtraTypeInfo(const RExtraTypeInfoDescriptor &) final {
-    throw ROOT::RException(
-        R__FAIL("UpdateExtraTypeInfo not supported via RPageSinkMPI"));
+    // FIXME
+    // throw ROOT::RException(
+    //     R__FAIL("UpdateExtraTypeInfo not supported via RPageSinkMPI"));
   }
 
   void CommitSuppressedColumn(ColumnHandle_t columnHandle) final {
