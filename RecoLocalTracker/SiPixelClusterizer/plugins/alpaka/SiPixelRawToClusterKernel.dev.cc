@@ -189,9 +189,11 @@ namespace ALPAKA_ACCELERATOR_NAMESPACE {
             if (!(link == cablingMap.link()[index] && 1 == cablingMap.roc()[index]))
               errorFound = false;
           }
+#if 0
           if constexpr (debug)
             if (errorFound)
               printf("Invalid ROC = 25 found (errorType = 25)\n");
+#endif
           break;
         }
         case 26: {
