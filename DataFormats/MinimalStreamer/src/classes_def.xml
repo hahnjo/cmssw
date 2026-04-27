@@ -1,7 +1,6 @@
 <lcgdict>
   <class name="MinimalStreamerHostCollection"/>
 
-  <class name="MinimalStreamerHostCollection::Layout"/>
   <class name="MinimalStreamerSoATemplate<128, false>"/>
 
   <class name="edm::Wrapper<MinimalStreamerHostCollection>" splitLevel="0"/>
